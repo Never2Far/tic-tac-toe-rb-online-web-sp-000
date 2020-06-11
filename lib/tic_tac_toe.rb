@@ -28,7 +28,7 @@ def input_to_index(input)
   return index
 end
 
-def move(board, index, char = "X")
+def move(board, index)
   board[index] = char
 end
 
