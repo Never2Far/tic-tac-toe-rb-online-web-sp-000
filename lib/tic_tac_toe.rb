@@ -124,7 +124,7 @@ def turn(board)
     puts "The location you entered is already occupied."
     turn(board)
   else
-    board = move(board, input)
+    board = move(board, input, ${current_player(board)})
     display_board(board)
   end
 end
