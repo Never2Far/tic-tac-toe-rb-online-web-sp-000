@@ -104,3 +104,27 @@ def current_player(board)
     return "O"
   end
 end
+
+def valid_move?(board, index)
+  if index.between?(0, 8) && !position_taken?(board, index)
+    return true
+  else
+    return false
+  end
+end
+
+def turn(board)
+  puts "Please enter 1-9:"
+  input = input_to_index(gets.strip)
+
+  if input == -1
+    puts "Invalid input---input must contain an integer, 1-9."
+    turn(board)
+  elsif !valid_move?(board, input)
+    puts "The location you entered is already occupied."
+    turn(board)
+  else
+    board = move(board, input)
+    display_board(board)
+  end
+end
